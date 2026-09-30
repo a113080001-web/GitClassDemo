@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>配色小助手 (Color Palette Assistant)</title>
+  <meta name="description" content="直感的な操作で調和の取れたカラーパレットを見つけるアシスタントツール">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- ヘッダー -->
+    <header class="app-header">
+      <div class="badge">MVP Phase 1</div>
+      <h1 class="app-title">配色小助手</h1>
+      <p class="app-subtitle">Color Palette Assistant</p>
+      <div class="guide-box">
+        <p class="guide-text">
+          🎨 <strong>使い方ガイド:</strong> 下記のカラーピッカーまたはプリセット色からお好みの「基準色」を選択してください。リアルタイムにカラーチップとカラーコードが更新されます。
+        </p>
+      </div>
+    </header>
+
+    <!-- メインコンテンツ (1カラムレイアウト) -->
+    <main class="app-main">
+      <!-- 基準色選択・表示セクション -->
+      <section class="card base-color-card" aria-labelledby="section-base-color">
+        <div class="card-header">
+          <h2 id="section-base-color" class="card-title">基準色の選択</h2>
+          <span class="card-caption">Base Color Selection</span>
+        </div>
+
+        <!-- 選択中のカラーチップ (大きく見せる色見本) -->
+        <div class="chip-container">
+          <div id="colorChip" class="color-chip" role="img" aria-label="選択中の基準色見本">
+            <div class="chip-shine"></div>
+          </div>
+        </div>
+
+        <!-- カラー値テキスト表示エリア -->
+        <div class="color-values">
+          <div class="value-item">
+            <span class="value-label">HEX</span>
+            <span id="hexValue" class="value-code">#3B82F6</span>
+          </div>
+          <div class="value-divider"></div>
+          <div class="value-item">
+            <span class="value-label">RGB</span>
+            <span id="rgbValue" class="value-code">rgb(59, 130, 246)</span>
+          </div>
+        </div>
+
+        <!-- カラーピッカーコントロール -->
+        <div class="picker-control-group">
+          <label for="baseColorPicker" class="picker-label">
+            <span class="picker-icon">🎯</span> カラーピッカーで自由に調整:
+          </label>
+          <div class="picker-input-wrapper">
+            <input type="color" id="baseColorPicker" value="#3B82F6" class="color-picker-input" aria-label="基準色カラーピッカー">
+            <span class="picker-hint">クリックして色を選択</span>
+          </div>
+        </div>
+
+        <!-- プリセットカラー選択エリア -->
+        <div class="preset-section">
+          <label class="preset-label">クイックプリセット:</label>
+          <div class="preset-buttons" role="group" aria-label="プリセットカラー一覧">
+            <button type="button" class="preset-btn" data-color="#3B82F6" style="--preset-color: #3B82F6;" title="ブルー (#3B82F6)">
+              <span class="preset-swatch"></span>
+              <span class="preset-name">ブルー</span>
+            </button>
+            <button type="button" class="preset-btn" data-color="#EF4444" style="--preset-color: #EF4444;" title="レッド (#EF4444)">
+              <span class="preset-swatch"></span>
+              <span class="preset-name">レッド</span>
+            </button>
+            <button type="button" class="preset-btn" data-color="#10B981" style="--preset-color: #10B981;" title="グリーン (#10B981)">
+              <span class="preset-swatch"></span>
+              <span class="preset-name">グリーン</span>
+            </button>
+            <button type="button" class="preset-btn" data-color="#F59E0B" style="--preset-color: #F59E0B;" title="イエロー (#F59E0B)">
+              <span class="preset-swatch"></span>
+              <span class="preset-name">イエロー</span>
+            </button>
+            <button type="button" class="preset-btn" data-color="#8B5CF6" style="--preset-color: #8B5CF6;" title="パープル (#8B5CF6)">
+              <span class="preset-swatch"></span>
+              <span class="preset-name">パープル</span>
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- フッター -->
+    <footer class="app-footer">
+      <p>&copy; 2026 配色小助手 (Color Palette Assistant) - MVP Phase 1</p>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
